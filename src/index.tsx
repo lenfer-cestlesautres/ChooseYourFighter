@@ -1,19 +1,46 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {store} from './store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+
+
+
+
+
+
+
+
+
+
+// import { /*createSlice, nanoid,*/ createAsyncThunk } from '@reduxjs/toolkit';
+// import axios from 'axios';
+
+// export const fetchProductList = createAsyncThunk('productList/fetchProductList', async () => {
+// 	const response = await axios.get(
+// 	  'http://www.filltext.com/?rows=10&fname=%7BfirstName%7D&lname=%7BlastName%7D&pretty=true',{
+// 		headers: {
+// 		  'Accept': 'application/json'
+// 		}
+// 	  }
+// 	);
+//   console.log(response.config);
+// 	return response.data.productList;
+//   });
+//   fetchProductList()
+//   console.log("fetchProductList.toString()");
+//   console.log(fetchProductList());
