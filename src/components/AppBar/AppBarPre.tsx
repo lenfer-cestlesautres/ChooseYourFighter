@@ -1,4 +1,3 @@
-import React /*, { Component, useState, useEffect}*/ from 'react';
 import {Box, BoxExtendedProps} from 'grommet';
 
 export const AppBarPre = (props: JSX.IntrinsicAttributes & BoxExtendedProps) => (
@@ -11,7 +10,6 @@ export const AppBarPre = (props: JSX.IntrinsicAttributes & BoxExtendedProps) => 
 	  pad={{ left: 'medium', right: 'small', vertical: 'small' }}
 	  elevation='medium'
 	  style={{ zIndex: '1' }}
-	  // color='#FFFFFF'
 	  {...props}
 	/>
   );

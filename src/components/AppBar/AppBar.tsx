@@ -1,5 +1,3 @@
-
-import React /*, { Component, useState, useEffect}*/ from 'react';
 import {Box, BoxExtendedProps} from 'grommet';
 
 export const AppBar = (props: JSX.IntrinsicAttributes & BoxExtendedProps) => (

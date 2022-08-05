@@ -51,13 +51,10 @@ button {
     outline: none;
 }
 
-.btn-hover.color-6 {
+.btn-hover.color {
     background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
     box-shadow: 0 4px 8px 0 rgba(144, 144, 144, 0.75);
 }
-
-
-
 
 .card-hover {
     width: 300px;
@@ -90,12 +87,10 @@ button {
     outline: none;
 }
 
-.card-hover.color-6 {
+.card-hover.color {
     background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
     box-shadow: 0 4px 8px 0 rgba(144, 144, 144, 0.75);
 }
-
-
 
 .row {
     display: table;

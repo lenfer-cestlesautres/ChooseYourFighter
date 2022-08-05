@@ -1,14 +1,13 @@
-
 export type titem  = {
 	fname: string,
 	lname: string,
   }
   
-  export type Data  = {
+export type Data  = {
 	fname: string,
 	lname: string,
   }[]
   
-  export type cleanData = {
+export type cleanData = {
 	person: string
   }[]
