@@ -24,7 +24,6 @@ import {
   theme
 } from './constants/constants';
 import {titem, cleanData} from './store/types'
-import {Initializer} from './components/FlipCard/CardsFlip'
 
 
 const URL: string = 'http://www.filltext.com/?rows=10&fname={firstName}&lname={lastName}&pretty=true'
@@ -47,7 +46,7 @@ const App = () => {
     }
     fetchData();
   }, []);
-
+  
   return (
       <Grommet theme={theme}>
         
@@ -62,10 +61,8 @@ const App = () => {
           </Nav>
         </AppBar>
         <div id="div1" className="ccc"><SearchBar options={state}></SearchBar></div>
-  		  <Initializer arr={state}/>
         <div className="row"><CardsFlip/></div>
         <Toast message='The Document Object Model, you dummy'/>
-    
         <Footer pad="small" direction="row" background="brand" align="bottom"  fill="horizontal" hoverIndicator="true">
           <Anchor
               icon={<Home />}

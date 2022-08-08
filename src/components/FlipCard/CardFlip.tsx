@@ -7,40 +7,39 @@ import {
 	Form,
 	Button
 } from "grommet";
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import ReactCardFlip from 'react-card-flip';
-import { RootState } from "../../store";
-import { useDispatch, useSelector } from 'react-redux';
-import {removeProduct, addProductsObjectArray} from '../../store/Slices/productsSlice';
-import {editSkills} from '../../store/Slices/singleProductSlice';
+import { useDispatch } from 'react-redux';
+import {removeProduct} from '../../store/Slices/productsSlice';
 import {Edit, Close} from 'grommet-icons';
-const { sentence } = require('txtgen/dist/cjs/txtgen.js');
 
+interface IProductsInfo {
+	name?: string;
+	age?: number;
+	phrase?: string;
+	skills?: string;
+};
 
-
-
-export const CardFlip = (props: {item: string}) => {
+export const CardFlip = (props: {index: number, item: IProductsInfo}) => {
 	const [isFlipped, setIsFlipped] = React.useState(false);
-	const age = Math.ceil(Math.random() * 100);
-	const phrase = sentence();
-	const skills = useSelector((state: RootState) => state.product.skills);
-	const dispatch = useDispatch();
 	const [text, setText] = useState('');
     const [isShown, setIsShown] = useState(false);
     const handleClick = () => {
       setIsShown(current => !current);
     };
+	const [crutch, setCrutch] = useState('');
+	const dispatch = useDispatch();
 
 	return (
-	<span className="column" key = {props.item}>
+	<span className="column">
 	<ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
 		<Card className="card-hover color" onClick={() => {setIsFlipped((prev) => !prev); }}>
-			<span onClick={(e) => {setIsFlipped((prev) => !prev); dispatch(removeProduct(props.item))}}>
+			<span onClick={(e) => {setIsFlipped((prev) => !prev); dispatch(removeProduct(props.item.name))}}>
 				<Anchor icon={<Close />}/>
 			</span>
 			<CardBody>
-				<h3>FIGHTER:</h3> <strong>{props.item}</strong>
-				<p>AGE: {age}</p>
+				<h3>FIGHTER:</h3> <strong>{props.item.name}</strong>
+				<p>AGE: {props.item.age}</p>
 			</CardBody>
 			<Box align='top'></Box>
 		</Card>
@@ -51,18 +50,23 @@ export const CardFlip = (props: {item: string}) => {
 			</span>
 			<CardBody>
 				FIGHTER INFO
-				<p><i>{phrase}</i></p>
+				<p><i>{props.item.phrase}</i></p>
 				
 			</CardBody>
 			<CardBody onClick={() => {setIsFlipped((prev) => !prev);  }}>
 				FEEDBACK:
 				{isShown && (
-					<Form onSubmit={(e) => {e.preventDefault(); dispatch(editSkills(text)); handleClick(); setText('')}}>
+					<Form onSubmit={(e) => {
+												e.preventDefault();
+												setCrutch(text);
+												handleClick();
+												setText('')
+											}}>
 						<TextInput type="text" value={text} onChange={(e) => {setText(e.currentTarget.value)}} />
 						<Button primary type="submit" color="white" label="save" icon={<Edit />}/>
 					</Form>
 				)}
-				{!isShown && (<p>"{skills}"</p>)}
+				{!isShown && (<p>"{crutch}"</p>)}
 			</CardBody>
 			<Box>Здесь могла быть ваша реклама</Box>
 		</Card> 

@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './Slices/productListSlice'
 import productsReducer from './Slices/productsSlice'
-import singleProductReducer from './Slices/singleProductSlice'
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
@@ -18,7 +17,6 @@ export const store = configureStore({
 		counter: counterReducer,		//* aka productListSlice 
 	  	products: productsReducer,		//* we keep here an array of products aka names. why? bcs we can 
 										//* (I should have implemented a much more difficult logic but changed my mind)
-		product: singleProductReducer,	//* yeah i know
 	},
 });
 

@@ -2,11 +2,10 @@ import {
 	createSlice,
 	PayloadAction
 } from '@reduxjs/toolkit';
-import { InProgress } from 'grommet-icons';
 
 export interface ProductsState {
 	chosen_products: string[];
-	productsObjectArray: IProductsInfo[]
+	chosen_objects: IProductsInfo[];
 }
 
 export interface IProductsInfo {
@@ -18,7 +17,7 @@ export interface IProductsInfo {
 
 const initialState: ProductsState = {
 	chosen_products: [],
-	productsObjectArray: []
+	chosen_objects: []
 }
 
 export const productsSlice = createSlice({
@@ -28,14 +27,14 @@ export const productsSlice = createSlice({
 		addProducts: (state, action: PayloadAction<string>) => {
 			state.chosen_products = [...state.chosen_products, action.payload];
 		},
-		removeProduct: (state, action: PayloadAction<string>) => {
+		removeProduct: (state, action: PayloadAction<string | undefined>) => {
 			state.chosen_products = state.chosen_products.filter(item => item !== action.payload);
 		},
-		addProductsObjectArray: (state, action: PayloadAction<IProductsInfo>) => {
-			state.productsObjectArray = [...state.productsObjectArray, action.payload];
+		addChosenObjects: (state, action: PayloadAction<IProductsInfo>) => {
+			state.chosen_objects = [...state.chosen_objects, action.payload];
 		}
 	}
 });
 
-export const {addProducts, removeProduct, addProductsObjectArray} = productsSlice.actions;
+export const {addProducts, removeProduct, addChosenObjects} = productsSlice.actions;
 export default productsSlice.reducer;

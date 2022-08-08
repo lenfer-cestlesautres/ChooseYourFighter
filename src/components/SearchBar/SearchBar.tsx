@@ -1,6 +1,6 @@
 import React from 'react';
 import {Select} from 'grommet';
-import {addProductIndex, addProductsList } from '../../store/Slices/productListSlice';
+import {addProductIndex } from '../../store/Slices/productListSlice';
 import { addProducts } from '../../store/Slices/productsSlice';
 import {useDispatch} from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -12,10 +12,10 @@ export const SearchBar = (props: {options: string[]}) => {
 		const products = useSelector((state: RootState) => state.products.chosen_products);
 		const [value] = React.useState();
 		const dispatch = useDispatch();
-		dispatch(addProductsList(props.options))
+
 		return (
         	<div onClick={(e) => {
-				//TODO this func can be MUCH MORE EASIER 
+				//TODO this func could be MUCH MORE EASIER 
 					let str: string;
 					let index: number;
 					if ((e.target as HTMLElement).innerText) { //вытаскиваем текст из хтмл описания места куда тыкнули и если там внутри есть имечко то движемся дальше
@@ -25,7 +25,7 @@ export const SearchBar = (props: {options: string[]}) => {
 								(products.find((i) => i === str)) !== str) {
 							indexes.push(index);
 							dispatch(addProductIndex(props.options.indexOf(str))); //изменяем глобальный стейт, добавляя туда индексы тыкнутых чечиков
-							dispatch(addProducts(str)); //
+							dispatch(addProducts(str));
 							// console.log(indexes, '\n', index, '\n', indexes.find((i) => i == index));
 						}
 					}

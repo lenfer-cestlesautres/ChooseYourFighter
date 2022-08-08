@@ -15,10 +15,13 @@ const initialState: CounterState = {
 	productsIndex: []
 }
 
+
+
+
 export const counterSlice = createSlice({
-	name: 'counter', //name of slice
-    initialState, // passing initial state
-	reducers: { //writing what does each reducer itself
+	name: 'counter', //name of the slice
+    initialState, // passing the initial state
+	reducers: { // writing what each reducer does itself
 		addProductsList: (state, action: PayloadAction<string[]>) => {
 			state.productsList = action.payload;
 		},
