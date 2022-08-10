@@ -1,6 +1,6 @@
 ![](FighterProject_AdobeExpress.gif)
 
-
+<img src="FighterProject_AdobeExpress.gif" width="250" height="250"/>
 
 
 
