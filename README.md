@@ -1,11 +1,6 @@
-![](FighterProject_AdobeExpress.gif)
+# Choose Your Fighter preview
 
-<img src="FighterProject_AdobeExpress.gif" width="250" height="250"/>
-
-
-
-
-
+<img src="Capt30secFighterProj.gif"/>
 
 
 # Getting Started with Create React App
